@@ -1,7 +1,7 @@
 {
-  "name": "Budget de Léa - Brésil Automne 2025",
-  "short_name": "Rio Tracker",
-  "description": "Application de budget personnel pour l'échange au Brésil",
+  "name": "Suivi de Budget Personnel",
+  "short_name": "Mon Budget",
+  "description": "Application de suivi de budget personnel",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#009739",
