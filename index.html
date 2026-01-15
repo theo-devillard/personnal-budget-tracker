@@ -509,25 +509,37 @@
         /* Navigation Styles */
         .nav-bar {
             background: var(--header-bg);
-            padding: 5px 20px;
+            padding: 5px 8px;
             border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        
+        @media (min-width: 769px) {
+            .nav-bar {
+                padding: 5px 20px;
+            }
         }
 
         .nav-buttons {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             justify-content: center;
             flex-wrap: wrap;
+        }
+        
+        @media (min-width: 769px) {
+            .nav-buttons {
+                gap: 8px;
+            }
         }
 
         .nav-btn {
             background: transparent;
             color: var(--text);
             border: none;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.85em;
+            font-size: 0.8em;
             font-weight: 500;
             transition: all 0.2s;
             backdrop-filter: none;
@@ -535,6 +547,13 @@
             min-height: 44px;
             touch-action: manipulation;
             -webkit-tap-highlight-color: rgba(0,0,0,0.06);
+        }
+        
+        @media (min-width: 769px) {
+            .nav-btn {
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
         }
 
         .nav-btn:hover, .nav-btn:active {
@@ -810,6 +829,14 @@
             grid-template-rows: 450px auto;
             gap: 20px;
             width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .monthly-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 10px;
+            }
         }
         
         .monthly-top-widget {
@@ -2268,10 +2295,18 @@
             // Keep default desktop layout but add desktop-specific enhancements
             const container = document.querySelector('.container');
             const navBar = document.querySelector('.nav-bar');
+            const header = document.querySelector('.header');
             
             // Add desktop classes
             navBar.classList.add('nav-desktop');
+            navBar.classList.remove('nav-mobile');
             container.classList.add('container-desktop');
+            container.classList.remove('container-mobile');
+            
+            // Move nav back to top (after header) if it was moved to bottom
+            if (navBar.parentElement === container) {
+                container.insertBefore(navBar, header.nextSibling);
+            }
         }
         
         
