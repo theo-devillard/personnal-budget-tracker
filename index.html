@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="icon-512x512.png" />
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <!-- <link rel="manifest" href="manifest.json"> -->
     
     <style>
         :root {
@@ -37,22 +37,6 @@
             --header-bg: transparent;
         }
 
-        /* Original Brazil palette (toggleable) */
-        .theme-original {
-            --bg: linear-gradient(135deg, #009739 0%, #FEDD00 30%, #002776 100%);
-            --text: #002776;
-            --surface: #ffffff;
-            --muted-border: #e1e5e9;
-            --accent: #009739;
-            --positive: #10b981;
-            --negative: #ef4444;
-            --btn-bg: linear-gradient(135deg, #009739, #FEDD00);
-            --btn-text: #ffffff;
-            --accent-foreground: #ffffff;
-            --shadow: 0 8px 32px rgba(0,0,0,0.1);
-            --header-bg: linear-gradient(135deg, #009739, #FEDD00);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -68,8 +52,7 @@
             font-size: 14px;
             margin: 0;
             /* Enhanced touch improvements for iOS */
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
+            user-select: none;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
             touch-action: manipulation;
             /* iOS safe area support */
@@ -91,7 +74,7 @@
         .header {
             background: var(--header-bg);
             color: var(--text);
-            padding: 12px 20px;
+            padding: 6px 20px;
             text-align: center;
         }
 
@@ -336,9 +319,9 @@
         }
 
         .month-btn {
-            background: var(--btn-bg);
-            color: var(--btn-text);
-            border: 1px solid var(--muted-border);
+            background: #000000;
+            color: #ffffff;
+            border: none;
             padding: 6px 10px;
             border-radius: 4px;
             cursor: pointer;
@@ -520,7 +503,7 @@
         /* Navigation Styles */
         .nav-bar {
             background: var(--header-bg);
-            padding: 10px 20px;
+            padding: 5px 20px;
             border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
@@ -679,7 +662,7 @@
             
             input, select, textarea {
                 font-size: 16px; /* Prevent zoom on iOS */
-                -webkit-appearance: none;
+                appearance: none;
                 border-radius: 8px;
                 padding: 12px;
                 transition: border-color 0.2s ease;
@@ -693,7 +676,7 @@
             
             /* Improve date input styling on iOS */
             input[type="date"], input[type="month"] {
-                -webkit-appearance: none;
+                appearance: none;
                 background: var(--surface);
                 border: 1px solid var(--muted-border);
                 padding: 10px;
@@ -701,20 +684,13 @@
                 position: relative;
             }
             
-            /* Better modal handling on iOS */
-            .modal {
-                -webkit-overflow-scrolling: touch;
-            }
-            
             .modal-content {
                 max-height: 90vh;
                 overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
             }
             
             /* Improve list scrolling on iOS */
             .list {
-                -webkit-overflow-scrolling: touch;
                 overflow-y: auto;
             }
             
@@ -1032,15 +1008,15 @@
 
         /* Monthly view quick action buttons (using same styling as dashboard) */
         .quick-action-btn.income-btn {
-            background: transparent;
-            color: var(--btn-text);
-            border: 1px solid var(--muted-border);
+            background: #000000;
+            color: #ffffff;
+            border: none;
         }
 
         .quick-action-btn.expense-btn {
-            background: transparent;
-            color: var(--btn-text);
-            border: 1px solid var(--muted-border);
+            background: #000000;
+            color: #ffffff;
+            border: none;
         }
 
         @media (max-width: 1200px) {
@@ -1114,6 +1090,13 @@
         .quick-action-btn.add-income {
             background: var(--btn-bg);
             color: var(--btn-text);
+        }
+
+        /* Quick action buttons */
+        .quick-action-btn.add-expense,
+        .quick-action-btn.add-income {
+            background: #000000;
+            color: #ffffff;
         }
 
         .quick-action-btn:hover {
@@ -1289,6 +1272,20 @@
             text-align: center;
         }
 
+        /* Data handling buttons */
+        .backup-controls .btn {
+            background: #000000;
+            color: #ffffff;
+            border-color: #333333;
+        }
+
+        /* Reset button styling */
+        #resetBtn {
+            background: #d32f2f;
+            color: #ffffff;
+            border-color: #b71c1c;
+        }
+
         /* iPhone date selector width reduction */
         .device-mobile input[type="date"] {
             max-width: 150px;
@@ -1302,7 +1299,6 @@
             /* iOS-only styles */
             .modal-content {
                 /* Better scrolling on iOS when content overflows */
-                -webkit-overflow-scrolling: touch;
                 overflow-y: auto;
                 max-height: calc(100vh - 40px);
             }
@@ -1337,7 +1333,7 @@
             /* Better input handling for iOS keyboards */
             input, select, textarea {
                 font-size: 16px; /* Prevents zoom */
-                -webkit-appearance: none;
+                appearance: none;
                 border-radius: 8px;
                 padding: 12px;
                 min-height: 44px;
@@ -1353,7 +1349,6 @@
 
             /* Enhanced swipe gesture support */
             .nav-mobile {
-                -webkit-user-select: none;
                 user-select: none;
             }
 
@@ -1375,7 +1370,6 @@
             background: var(--muted-bg, #f9fafb);
             border-radius: 8px;
             padding: 15px;
-            border-left: 3px solid var(--accent);
         }
 
         .comparison-section h4 {
@@ -1426,7 +1420,7 @@
         .chart-container {
             position: relative;
             height: 480px;
-            margin: 15px 0;
+            margin: 0;
             background: var(--surface);
             border: 1px solid var(--muted-border);
             border-radius: 8px;
@@ -1549,27 +1543,27 @@
                         <div class="overview-card">
                             <h3>Solde Actuel Estimé</h3>
                             <div class="value" id="dashCurrentBalance">0 $ CAD</div>
-                            <div class="subvalue" id="dashCurrentBalanceBRL">0 R$</div>
+                            <div class="subvalue" id="dashCurrentBalanceEUR">0 €</div>
                         </div>
                         <div class="overview-card">
-                            <h3>Dépenses Totales</h3>
+                            <h3>Dépenses Totales sur la Période</h3>
                             <div class="value" id="dashTotalExpenses">0 $ CAD</div>
-                            <div class="subvalue" id="dashTotalExpensesBRL">0 R$</div>
+                            <div class="subvalue" id="dashTotalExpensesEUR">0 €</div>
                         </div>
                         <div class="overview-card">
-                            <h3>Revenus Totaux</h3>
+                            <h3>Revenus Totaux sur la Période</h3>
                             <div class="value" id="dashTotalIncome">0 $ CAD</div>
-                            <div class="subvalue" id="dashTotalIncomeBRL">0 R$</div>
+                            <div class="subvalue" id="dashTotalIncomeEUR">0 €</div>
                         </div>
                         <div class="overview-card">
                             <h3>Bilan Net</h3>
                             <div class="value" id="dashNetBalance">0 $ CAD</div>
-                            <div class="subvalue" id="dashNetBalanceBRL">0 R$</div>
+                            <div class="subvalue" id="dashNetBalanceEUR">0 €</div>
                         </div>
                         <div class="overview-card">
                             <h3>Dépenses Du Mois</h3>
                             <div class="value" id="dashMonthBalance">0 $ CAD</div>
-                            <div class="subvalue" id="dashMonthBalanceBRL">0 R$</div>
+                            <div class="subvalue" id="dashMonthBalanceEUR">0 €</div>
                             <div class="subvalue" id="dashCurrentMonthName" style="font-size: 0.75em; margin-top: 2px;"></div>
                         </div>
                         <div class="overview-card">
@@ -1578,9 +1572,9 @@
                             <div class="subvalue">du budget utilisé</div>
                         </div>
                         <div class="overview-card">
-                            <h3>Budget de l'Échange</h3>
+                            <h3>Budget pour la Période</h3>
                             <div class="value" id="dashTotalBudget">0 $ CAD</div>
-                            <div class="subvalue" id="dashTotalBudgetBRL">0 R$</div>
+                            <div class="subvalue" id="dashTotalBudgetEUR">0 €</div>
                         </div>
                     </div>
                 </div>
@@ -1603,7 +1597,7 @@
                 </div>
                 
                 <!-- Chart -->
-                <div class="dashboard-chart widget">
+                <div class="dashboard-chart">
                     <div class="chart-container">
                         <h3 style="text-align: center; margin-bottom: 10px; color: var(--text);">💰 Solde Prévisionnel vs Réel (CAD)</h3>
                         <div class="chart-period-controls" style="text-align: center; margin-bottom: 15px;">
@@ -1636,12 +1630,12 @@
                         <div class="summary-card income">
                             <h4>Revenus</h4>
                             <div class="amount" id="monthIncomeDisplay">0 $</div>
-                            <div class="conversion" id="monthIncomeBRL">0 R$</div>
+                            <div class="conversion" id="monthIncomeEUR">0 €</div>
                         </div>
                         <div class="summary-card expense">
                             <h4>Dépenses</h4>
                             <div class="amount" id="monthSpentDisplay">0 $</div>
-                            <div class="conversion" id="monthSpentBRL">0 R$</div>
+                            <div class="conversion" id="monthSpentEUR">0 €</div>
                         </div>
                     </div>
                     
@@ -1685,7 +1679,7 @@
                 </div>
             
                 <!-- Category Pie Chart -->
-                <div class="monthly-pie-chart widget">
+                <div class="monthly-pie-chart">
                     <div class="chart-container">
                         <h3 style="text-align: center; margin-bottom: 10px; color: var(--text);">🥧 Dépenses par Catégorie (CAD)</h3>
                         <canvas id="categoryPieChart"></canvas>
@@ -1693,7 +1687,7 @@
                 </div>
                 
                 <!-- Planned vs Actual Chart -->
-                <div class="monthly-planned-vs-actual widget">
+                <div class="monthly-planned-vs-actual">
                     <div class="chart-container">
                         <h3 style="text-align: center; margin-bottom: 10px; color: var(--text);">📊 Planifié vs Réel (CAD)</h3>
                         <canvas id="plannedVsActualChart"></canvas>
@@ -1719,7 +1713,7 @@
                                 <input type="text" id="recurringIncomeDesc" placeholder="Allocation parents" style="margin-bottom: 4px;">
                                 <div class="currency-toggle">
                                     <button id="recurringIncomeCADBtn" class="active" onclick="switchRecurringIncomeCurrency('CAD')">CAD</button>
-                                    <button id="recurringIncomeBRLBtn" onclick="switchRecurringIncomeCurrency('BRL')">BRL</button>
+                                    <button id="recurringIncomeEURBtn" onclick="switchRecurringIncomeCurrency('EUR')">EUR</button>
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <input type="number" id="recurringIncomeAmount" placeholder="800" step="0.01">
@@ -1743,7 +1737,7 @@
                                 <input type="text" id="recurringExpenseDesc" placeholder="Forfait téléphone" style="margin-bottom: 4px;">
                                 <div class="currency-toggle">
                                     <button id="recurringExpenseCADBtn" class="active" onclick="switchRecurringExpenseCurrency('CAD')">CAD</button>
-                                    <button id="recurringExpenseBRLBtn" onclick="switchRecurringExpenseCurrency('BRL')">BRL</button>
+                                    <button id="recurringExpenseEURBtn" onclick="switchRecurringExpenseCurrency('EUR')">EUR</button>
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <input type="number" id="recurringExpenseAmount" placeholder="50" step="0.01">
@@ -1788,7 +1782,7 @@
                                 <input type="text" id="plannedRevenueOnceDesc" placeholder="Prime, cadeau, vente..." style="margin-bottom: 4px;">
                                 <div class="currency-toggle">
                                     <button id="plannedRevenueOnceCADBtn" class="active" onclick="switchPlannedRevenueOnceCurrency('CAD')">CAD</button>
-                                    <button id="plannedRevenueOnceBRLBtn" onclick="switchPlannedRevenueOnceCurrency('BRL')">BRL</button>
+                                    <button id="plannedRevenueOnceEURBtn" onclick="switchPlannedRevenueOnceCurrency('EUR')">EUR</button>
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <input type="number" id="plannedRevenueOnceAmount" placeholder="500" step="0.01">
@@ -1805,7 +1799,7 @@
                                 <input type="text" id="plannedOnceDesc" placeholder="Billets d'avion, cadeaux..." style="margin-bottom: 4px;">
                                 <div class="currency-toggle">
                                     <button id="plannedOnceCADBtn" class="active" onclick="switchPlannedOnceCurrency('CAD')">CAD</button>
-                                    <button id="plannedOnceBRLBtn" onclick="switchPlannedOnceCurrency('BRL')">BRL</button>
+                                    <button id="plannedOnceEURBtn" onclick="switchPlannedOnceCurrency('EUR')">EUR</button>
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <input type="number" id="plannedOnceAmount" placeholder="500" step="0.01">
@@ -1843,7 +1837,7 @@
                                 <input type="text" id="plannedRecurringRevenueDesc" placeholder="Job d'été, contrat temporaire..." style="margin-bottom: 4px;">
                                 <div class="currency-toggle">
                                     <button id="plannedRecurringRevenueCADBtn" class="active" onclick="switchPlannedRecurringRevenueCurrency('CAD')">CAD</button>
-                                    <button id="plannedRecurringRevenueBRLBtn" onclick="switchPlannedRecurringRevenueCurrency('BRL')">BRL</button>
+                                    <button id="plannedRecurringRevenueEURBtn" onclick="switchPlannedRecurringRevenueCurrency('EUR')">EUR</button>
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <input type="number" id="plannedRecurringRevenueAmount" placeholder="1000" step="0.01">
@@ -1874,7 +1868,7 @@
                                 <input type="text" id="plannedRecurringDesc" placeholder="Location voiture, cours..." style="margin-bottom: 4px;">
                                 <div class="currency-toggle">
                                     <button id="plannedRecurringCADBtn" class="active" onclick="switchPlannedRecurringCurrency('CAD')">CAD</button>
-                                    <button id="plannedRecurringBRLBtn" onclick="switchPlannedRecurringCurrency('BRL')">BRL</button>
+                                    <button id="plannedRecurringEURBtn" onclick="switchPlannedRecurringCurrency('EUR')">EUR</button>
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <input type="number" id="plannedRecurringAmount" placeholder="300" step="0.01">
@@ -1946,10 +1940,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Taux (1 CAD = ? BRL)</label>
-                        <input type="number" id="exchangeRateInput" placeholder="3.80" step="0.01" value="3.80">
+                        <label>Taux (1 CAD = ? EUR)</label>
+                        <input type="number" id="exchangeRateInput" placeholder="0.62" step="0.01" value="0.62">
                     </div>
-                    <button class="btn" onclick="updateSetup()">Sauvegarder</button>
+                    <button class="btn" style="background: #000000; color: #ffffff;" onclick="updateSetup()">Sauvegarder</button>
                 </div>
 
                 <!-- Custom Categories -->
@@ -1993,7 +1987,7 @@
                     <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--muted-border);">
                         <h3 style="color: var(--negative); font-size: 0.9em; margin-bottom: 8px;">⚠️ Zone Dangereuse</h3>
                         <p style="font-size: 0.8em; color: var(--muted); margin-bottom: 8px;">Supprimer toutes les données pour recommencer à zéro</p>
-                        <button class="btn" style="background: var(--negative); width: 100%;" onclick="confirmResetAllData()">🗑️ Supprimer Toutes les Données</button>
+                        <button class="btn" id="resetBtn" style="width: 100%;" onclick="confirmResetAllData()">🗑️ Supprimer Toutes les Données</button>
                     </div>
                 </div>
             </div>
@@ -2015,7 +2009,7 @@
                 <label>Montant</label>
                 <div class="currency-toggle">
                     <button id="cadBtn" class="active" onclick="switchCurrency('CAD')">CAD</button>
-                    <button id="brlBtn" onclick="switchCurrency('BRL')">BRL</button>
+                    <button id="eurBtn" onclick="switchCurrency('EUR')">EUR</button>
                 </div>
                 <input type="number" id="expenseAmount" placeholder="Montant" step="0.01">
             </div>
@@ -2058,7 +2052,7 @@
                 <label>Montant</label>
                 <div class="currency-toggle">
                     <button id="incomeCADBtn" class="active" onclick="switchIncomeCurrency('CAD')">CAD</button>
-                    <button id="incomeBRLBtn" onclick="switchIncomeCurrency('BRL')">BRL</button>
+                    <button id="incomeEURBtn" onclick="switchIncomeCurrency('EUR')">EUR</button>
                 </div>
                 <input type="number" id="incomeAmount" placeholder="Montant" step="0.01">
             </div>
@@ -2085,7 +2079,7 @@
                 <label>Montant</label>
                 <div class="currency-toggle">
                     <button id="editTransactionCADBtn" class="active" onclick="switchEditTransactionCurrency('CAD')">CAD</button>
-                    <button id="editTransactionBRLBtn" onclick="switchEditTransactionCurrency('BRL')">BRL</button>
+                    <button id="editTransactionEURBtn" onclick="switchEditTransactionCurrency('EUR')">EUR</button>
                 </div>
                 <input type="number" id="editTransactionAmount" placeholder="Montant" step="0.01">
             </div>
@@ -2128,7 +2122,7 @@
                 <label>Montant</label>
                 <div class="currency-toggle">
                     <button id="editRecurringCADBtn" class="active" onclick="switchEditRecurringCurrency('CAD')">CAD</button>
-                    <button id="editRecurringBRLBtn" onclick="switchEditRecurringCurrency('BRL')">BRL</button>
+                    <button id="editRecurringEURBtn" onclick="switchEditRecurringCurrency('EUR')">EUR</button>
                 </div>
                 <input type="number" id="editRecurringAmount" placeholder="Montant" step="0.01">
             </div>
@@ -2193,7 +2187,7 @@
 
     <script>
         // Variables globales
-        let exchangeRate = 3.8;
+        let exchangeRate = 0.62;
         let currentInputCurrency = 'CAD';
         let currentIncomeCurrency = 'CAD';
         let currentRecurringIncomeCurrency = 'CAD';
@@ -2250,51 +2244,10 @@
             }
         }
 
-        // Initialize theme toggle in nav (creates only once)
-        function initThemeToggle() {
-            const navButtons = document.querySelector('.nav-buttons');
-            if (!navButtons) return;
-
-            const existingToggle = document.getElementById('themeToggle');
-            const stored = localStorage.getItem('theme') || 'bw';
-            if (existingToggle) {
-                if (stored === 'original') document.documentElement.classList.add('theme-original'); else document.documentElement.classList.remove('theme-original');
-                existingToggle.textContent = stored === 'original' ? 'Original' : 'B/W';
-                return existingToggle;
-            }
-
-            const themeToggle = document.createElement('button');
-            themeToggle.id = 'themeToggle';
-            themeToggle.className = 'nav-btn';
-            themeToggle.style.marginLeft = '8px';
-
-            function applyThemeToToggle() {
-                const t = localStorage.getItem('theme') || 'bw';
-                if (t === 'original') {
-                    document.documentElement.classList.add('theme-original');
-                    themeToggle.textContent = 'Original';
-                } else {
-                    document.documentElement.classList.remove('theme-original');
-                    themeToggle.textContent = 'B/W';
-                }
-            }
-
-            themeToggle.addEventListener('click', function() {
-                const active = document.documentElement.classList.toggle('theme-original');
-                localStorage.setItem('theme', active ? 'original' : 'bw');
-                applyThemeToToggle();
-            });
-
-            navButtons.insertBefore(themeToggle, navButtons.firstChild);
-            applyThemeToToggle();
-            return themeToggle;
-        }
-        
         function loadMobileLayout() {
             // Move navigation to bottom for mobile
             const container = document.querySelector('.container');
             const navBar = document.querySelector('.nav-bar');
-            const header = document.querySelector('.header');
             
             // Add mobile classes
             navBar.classList.add('nav-mobile');
@@ -2302,27 +2255,6 @@
             
             // Move nav to bottom
             container.appendChild(navBar);
-            
-            // Update navigation for mobile
-            const navButtons = document.querySelector('.nav-buttons');
-            navButtons.innerHTML = `
-                <button class="nav-btn nav-btn-mobile active" onclick="showPage('dashboard')">
-                    <span class="nav-icon">🏠</span>
-                    <span class="nav-label">Accueil</span>
-                </button>
-                <button class="nav-btn nav-btn-mobile" onclick="showPage('monthly')">
-                    <span class="nav-icon">📅</span>
-                    <span class="nav-label">Mensuel</span>
-                </button>
-                <button class="nav-btn nav-btn-mobile" onclick="showPage('planning')">
-                    <span class="nav-icon">🎯</span>
-                    <span class="nav-label">Planning</span>
-                </button>
-                <button class="nav-btn nav-btn-mobile" onclick="showPage('settings')">
-                    <span class="nav-icon">⚙️</span>
-                    <span class="nav-label">Config</span>
-                </button>
-            `;
         }
         
         function loadDesktopLayout() {
@@ -2354,6 +2286,31 @@
             plannedIncome: [], // New: one-time and timeframe-limited recurring income
             customCategories: []
         };
+        
+        // Unified category list - single source of truth for all categories
+        const unifiedCategories = [
+            { value: "Nourriture", emoji: "🍽️", label: "Nourriture" },
+            { value: "Épicerie", emoji: "🛒", label: "Épicerie" },
+            { value: "Transport", emoji: "🚌", label: "Transport" },
+            { value: "Logement", emoji: "🏠", label: "Logement" },
+            { value: "Hébergement", emoji: "🏨", label: "Hébergement" },
+            { value: "Téléphone", emoji: "📱", label: "Téléphone" },
+            { value: "Internet", emoji: "🌐", label: "Internet" },
+            { value: "Électricité", emoji: "⚡", label: "Électricité" },
+            { value: "Gaz", emoji: "🔥", label: "Gaz" },
+            { value: "Eau", emoji: "💧", label: "Eau" },
+            { value: "Pharmacie", emoji: "💊", label: "Pharmacie" },
+            { value: "Beauté", emoji: "💅", label: "Beauté" },
+            { value: "Divertissement", emoji: "🎉", label: "Sortie" },
+            { value: "Loisirs", emoji: "⚽", label: "Loisirs" },
+            { value: "Shopping", emoji: "🛍️", label: "Shopping" },
+            { value: "Voyage", emoji: "✈️", label: "Voyage" },
+            { value: "Activités", emoji: "🎯", label: "Activités" },
+            { value: "Cours", emoji: "📚", label: "Cours" },
+            { value: "Abonnement", emoji: "📺", label: "Abonnement" },
+            { value: "Assurance", emoji: "🛡️", label: "Assurance" },
+            { value: "Autre", emoji: "📋", label: "Autre" }
+        ];
 
         // Navigation Functions
         function showPage(pageId) {
@@ -2381,8 +2338,6 @@
             // Update display and categories when switching pages
             updateDisplay();
 
-            // Ensure theme toggle exists
-            if (typeof initThemeToggle === 'function') initThemeToggle();
             updateCategorySelectors();
         }
 
@@ -2420,9 +2375,7 @@
                 event.target.classList.remove('active');
             }
         });
-
-        // Enhanced touch support for modals
-        document.addEventListener('touchstart', function(event) {
+document.addEventListener('touchstart', function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.classList.remove('active');
                 document.body.classList.remove('modal-open');
@@ -2485,81 +2438,81 @@
         function switchCurrency(currency) {
             currentInputCurrency = currency;
             const cadBtn = document.getElementById('cadBtn');
-            const brlBtn = document.getElementById('brlBtn');
+            const eurBtn = document.getElementById('eurBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchIncomeCurrency(currency) {
             currentIncomeCurrency = currency;
             const cadBtn = document.getElementById('incomeCADBtn');
-            const brlBtn = document.getElementById('incomeBRLBtn');
+            const eurBtn = document.getElementById('incomeEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchRecurringIncomeCurrency(currency) {
             currentRecurringIncomeCurrency = currency;
             const cadBtn = document.getElementById('recurringIncomeCADBtn');
-            const brlBtn = document.getElementById('recurringIncomeBRLBtn');
+            const eurBtn = document.getElementById('recurringIncomeEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchRecurringExpenseCurrency(currency) {
             currentRecurringExpenseCurrency = currency;
             const cadBtn = document.getElementById('recurringExpenseCADBtn');
-            const brlBtn = document.getElementById('recurringExpenseBRLBtn');
+            const eurBtn = document.getElementById('recurringExpenseEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchEditRecurringCurrency(currency) {
             currentEditRecurringCurrency = currency;
             const cadBtn = document.getElementById('editRecurringCADBtn');
-            const brlBtn = document.getElementById('editRecurringBRLBtn');
+            const eurBtn = document.getElementById('editRecurringEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
         
         function switchEditTransactionCurrency(currency) {
             currentEditTransactionCurrency = currency;
             const cadBtn = document.getElementById('editTransactionCADBtn');
-            const brlBtn = document.getElementById('editTransactionBRLBtn');
+            const eurBtn = document.getElementById('editTransactionEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchPlannedOnceCurrency(currency) {
             currentPlannedOnceCurrency = currency;
             const cadBtn = document.getElementById('plannedOnceCADBtn');
-            const brlBtn = document.getElementById('plannedOnceBRLBtn');
+            const eurBtn = document.getElementById('plannedOnceEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchPlannedRecurringCurrency(currency) {
             currentPlannedRecurringCurrency = currency;
             const cadBtn = document.getElementById('plannedRecurringCADBtn');
-            const brlBtn = document.getElementById('plannedRecurringBRLBtn');
+            const eurBtn = document.getElementById('plannedRecurringEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchPlannedRevenueOnceCurrency(currency) {
             currentPlannedRevenueOnceCurrency = currency;
             const cadBtn = document.getElementById('plannedRevenueOnceCADBtn');
-            const brlBtn = document.getElementById('plannedRevenueOnceBRLBtn');
+            const eurBtn = document.getElementById('plannedRevenueOnceEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         function switchPlannedRecurringRevenueCurrency(currency) {
             currentPlannedRecurringRevenueCurrency = currency;
             const cadBtn = document.getElementById('plannedRecurringRevenueCADBtn');
-            const brlBtn = document.getElementById('plannedRecurringRevenueBRLBtn');
+            const eurBtn = document.getElementById('plannedRecurringRevenueEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
         }
 
         // Fonctions de sauvegarde
@@ -2581,20 +2534,26 @@
         }
 
         function loadBudgetData() {
-            try {
-                const savedData = localStorage.getItem('brazilBudgetTracker');
-                if (savedData) {
-                    const parsedData = JSON.parse(savedData);
-                    budget = parsedData.budget || budget;
-                    
+            const candidateKeys = ['brazilBudgetTracker', 'brazilBudget', 'budgetData', 'budgetTracker'];
+            for (let k = 0; k < candidateKeys.length; k++) {
+                const key = candidateKeys[k];
+                try {
+                    const saved = localStorage.getItem(key);
+                    if (!saved) continue;
+                    const parsedData = JSON.parse(saved);
+
+                    // Support both wrapped ({ budget, exchangeRate, currentMonth }) and raw budget objects
+                    const loadedBudget = parsedData.budget ? parsedData.budget : parsedData;
+                    budget = loadedBudget || budget;
+
                     // Ensure new planned expense arrays exist for backward compatibility
                     if (!budget.plannedExpenses) budget.plannedExpenses = [];
                     if (!budget.plannedIncome) budget.plannedIncome = [];
-                    
+
                     // Migrate old planned expenses to include transactionType
                     budget.plannedExpenses.forEach(expense => {
                         if (!expense.transactionType) expense.transactionType = 'expense';
-                        
+
                         // Migrate recurring transactions to include startMonth/endMonth if missing
                         if (expense.type === 'recurring' && expense.startDate && expense.endDate && (!expense.startMonth || !expense.endMonth)) {
                             const startDateParts = expense.startDate.split('-');
@@ -2605,9 +2564,10 @@
                             expense.endMonth = `${endDateObj.getFullYear()}-${String(endDateObj.getMonth() + 1).padStart(2, '0')}`;
                         }
                     });
+
                     budget.plannedIncome.forEach(income => {
                         if (!income.transactionType) income.transactionType = 'income';
-                        
+
                         // Migrate recurring transactions to include startMonth/endMonth if missing
                         if (income.type === 'recurring' && income.startDate && income.endDate && (!income.startMonth || !income.endMonth)) {
                             const startDateParts = income.startDate.split('-');
@@ -2618,38 +2578,66 @@
                             income.endMonth = `${endDateObj.getFullYear()}-${String(endDateObj.getMonth() + 1).padStart(2, '0')}`;
                         }
                     });
-                    
-                    exchangeRate = parsedData.exchangeRate || exchangeRate;
-                    
+
+                    // Prefer explicit exchangeRate in wrapped object, otherwise try common fields
+                    exchangeRate = (parsedData.exchangeRate || parsedData.rate || parsedData.exchange || exchangeRate);
+
                     if (parsedData.currentMonth) {
                         currentMonth = new Date();
                         currentMonth.setMonth(parsedData.currentMonth.month);
                         currentMonth.setFullYear(parsedData.currentMonth.year);
                     }
-                    
-                    // Remplir les champs
-                    if (budget.total) document.getElementById('totalBudget').value = budget.total;
-                    if (budget.currentBalance) document.getElementById('currentBalance').value = budget.currentBalance;
-                    if (budget.balanceDate) document.getElementById('balanceDate').value = budget.balanceDate;
-                    if (budget.startDate) document.getElementById('startDate').value = budget.startDate;
-                    if (budget.endDate) document.getElementById('endDate').value = budget.endDate;
-                    if (exchangeRate) document.getElementById('exchangeRateInput').value = exchangeRate;
-                    
+
+                    // Populate form fields if present
+                    if (budget.total) {
+                        const el = document.getElementById('totalBudget');
+                        if (el) el.value = budget.total;
+                    }
+                    if (budget.currentBalance) {
+                        const el = document.getElementById('currentBalance');
+                        if (el) el.value = budget.currentBalance;
+                    }
+                    if (budget.balanceDate) {
+                        const el = document.getElementById('balanceDate');
+                        if (el) el.value = budget.balanceDate;
+                    }
+                    if (budget.startDate) {
+                        const el = document.getElementById('startDate');
+                        if (el) el.value = budget.startDate;
+                    }
+                    if (budget.endDate) {
+                        const el = document.getElementById('endDate');
+                        if (el) el.value = budget.endDate;
+                    }
+                    if (exchangeRate) {
+                        const el = document.getElementById('exchangeRateInput');
+                        if (el) el.value = exchangeRate;
+                    }
+
                     return true;
-                }
-            } catch (error) {
-                if (window.budgetBackup) {
-                    const backupData = window.budgetBackup;
-                    budget = backupData.budget || budget;
-                    
-                    // Ensure new planned expense arrays exist for backward compatibility
-                    if (!budget.plannedExpenses) budget.plannedExpenses = [];
-                    if (!budget.plannedIncome) budget.plannedIncome = [];
-                    
-                    exchangeRate = backupData.exchangeRate || exchangeRate;
-                    return true;
+                } catch (err) {
+                    console.warn('Failed to load budget from localStorage key "' + key + '":', err);
+                    continue;
                 }
             }
+
+            // Fallback: use in-memory backup if present
+            if (window.budgetBackup) {
+                try {
+                    const backupData = window.budgetBackup;
+                    budget = backupData.budget || budget;
+
+                    if (!budget.plannedExpenses) budget.plannedExpenses = [];
+                    if (!budget.plannedIncome) budget.plannedIncome = [];
+
+                    exchangeRate = backupData.exchangeRate || exchangeRate;
+
+                    return true;
+                } catch (e) {
+                    console.warn('Failed to restore from window.budgetBackup', e);
+                }
+            }
+
             return false;
         }
 
@@ -2720,7 +2708,7 @@
                 return;
             }
 
-            const amountCAD = currentIncomeCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentIncomeCurrency === 'EUR' ? amount / exchangeRate : amount;
             const transactionDate = dateInput || new Date().toISOString().split('T')[0];
             // Fix month boundary issue by parsing date properly
             const dateParts = transactionDate.split('-');
@@ -2764,7 +2752,7 @@
                 return;
             }
 
-            const amountCAD = currentInputCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentInputCurrency === 'EUR' ? amount / exchangeRate : amount;
             const transactionDate = dateInput || new Date().toISOString().split('T')[0];
             // Fix month boundary issue by parsing date properly
             const dateParts = transactionDate.split('-');
@@ -2809,7 +2797,7 @@
                 return;
             }
 
-            const amountCAD = currentRecurringIncomeCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentRecurringIncomeCurrency === 'EUR' ? amount / exchangeRate : amount;
 
             const recurring = {
                 id: Date.now(),
@@ -2844,7 +2832,7 @@
                 return;
             }
 
-            const amountCAD = currentRecurringExpenseCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentRecurringExpenseCurrency === 'EUR' ? amount / exchangeRate : amount;
 
             const recurring = {
                 id: Date.now(),
@@ -2879,7 +2867,7 @@
                 return;
             }
 
-            const amountCAD = currentPlannedRevenueOnceCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentPlannedRevenueOnceCurrency === 'EUR' ? amount / exchangeRate : amount;
             
             // Parse date components directly to avoid timezone issues
             const dateParts = date.split('-');
@@ -2921,7 +2909,7 @@
                 return;
             }
 
-            const amountCAD = currentPlannedOnceCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentPlannedOnceCurrency === 'EUR' ? amount / exchangeRate : amount;
             
             // Parse date components directly to avoid timezone issues
             const dateParts = date.split('-');
@@ -2965,7 +2953,7 @@
                 return;
             }
 
-            const amountCAD = currentPlannedRecurringRevenueCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentPlannedRecurringRevenueCurrency === 'EUR' ? amount / exchangeRate : amount;
 
             // Parse dates to extract month info, fixing 0-based month offset
             const startDateParts = startDate.split('-');
@@ -3014,7 +3002,7 @@
                 return;
             }
 
-            const amountCAD = currentPlannedRecurringCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentPlannedRecurringCurrency === 'EUR' ? amount / exchangeRate : amount;
 
             // Parse dates to extract month info, fixing 0-based month offset
             const startDateParts = startDate.split('-');
@@ -3094,7 +3082,7 @@
             const originalText = saveBtn.textContent;
             saveBtn.textContent = '✅ Sauvegardé!';
             saveBtn.style.background = 'var(--positive)';
-            saveBtn.style.color = 'var(--btn-text)';
+            saveBtn.style.color = '#ffffff';
             
             // Refresh page after showing feedback
             setTimeout(() => {
@@ -3176,22 +3164,22 @@
 
             // Update dashboard cards
             updateElement('dashTotalBudget', formatCurrency(budget.total, 'CAD'));
-            updateElement('dashTotalBudgetBRL', formatCurrency(budget.total * exchangeRate, 'BRL'));
+            updateElement('dashTotalBudgetEUR', formatCurrency(budget.total * exchangeRate, 'EUR'));
             updateElement('dashCurrentBalance', formatCurrency(currentBalance, 'CAD'));
-            updateElement('dashCurrentBalanceBRL', formatCurrency(currentBalance * exchangeRate, 'BRL'));
+            updateElement('dashCurrentBalanceEUR', formatCurrency(currentBalance * exchangeRate, 'EUR'));
             updateElement('dashMonthBalance', formatCurrency(monthBalance, 'CAD'));
-            updateElement('dashMonthBalanceBRL', formatCurrency(monthBalance * exchangeRate, 'BRL'));
+            updateElement('dashMonthBalanceEUR', formatCurrency(monthBalance * exchangeRate, 'EUR'));
             updateElement('dashCurrentMonthName', today.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' }));
             updateElement('dashProgress', progressPercentage + '%');
             updateElement('dashTotalExpenses', '-' + formatCurrency(totalExpenses, 'CAD'));
-            updateElement('dashTotalExpensesBRL', '-' + formatCurrency(totalExpenses * exchangeRate, 'BRL'));
+            updateElement('dashTotalExpensesEUR', '-' + formatCurrency(totalExpenses * exchangeRate, 'EUR'));
             updateElement('dashTotalIncome', '+' + formatCurrency(totalIncome, 'CAD'));
-            updateElement('dashTotalIncomeBRL', '+' + formatCurrency(totalIncome * exchangeRate, 'BRL'));
+            updateElement('dashTotalIncomeEUR', '+' + formatCurrency(totalIncome * exchangeRate, 'EUR'));
             
             // Calculate and display net balance (total income - total expenses)
             const netBalance = totalIncome - totalExpenses;
             updateElement('dashNetBalance', formatCurrency(netBalance, 'CAD'));
-            updateElement('dashNetBalanceBRL', formatCurrency(netBalance * exchangeRate, 'BRL'));
+            updateElement('dashNetBalanceEUR', formatCurrency(netBalance * exchangeRate, 'EUR'));
 
             // Update recent transactions
             updateRecentTransactions();
@@ -3208,9 +3196,9 @@
 
             // Update monthly summary
             updateElement('monthIncomeDisplay', formatCurrency(monthIncome, 'CAD'));
-            updateElement('monthIncomeBRL', formatCurrency(monthIncome * exchangeRate, 'BRL'));
+            updateElement('monthIncomeEUR', formatCurrency(monthIncome * exchangeRate, 'EUR'));
             updateElement('monthSpentDisplay', formatCurrency(monthExpenses, 'CAD'));
-            updateElement('monthSpentBRL', formatCurrency(monthExpenses * exchangeRate, 'BRL'));
+            updateElement('monthSpentEUR', formatCurrency(monthExpenses * exchangeRate, 'EUR'));
 
             // Update monthly transactions list
             updateMonthTransactionsList(monthTransactions);
@@ -3410,7 +3398,7 @@
         }
 
         function createPlannedExpenseListItem(transaction) {
-            const amountBRL = transaction.amount * exchangeRate;
+            const amountEUR = transaction.amount * exchangeRate;
             const isIncome = transaction.isIncome || transaction.transactionType === 'income';
             
             // Check if transaction is still active (not ended)
@@ -3485,7 +3473,7 @@
                     </div>
                     <div class="item-amount">
                         <div class="primary" style="color: ${isIncome ? 'var(--positive)' : 'var(--negative)'}">${isIncome ? '+' : ''}${formatCurrency(transaction.amount, 'CAD')}</div>
-                        <div class="secondary">${isIncome ? '+' : ''}${formatCurrency(amountBRL, 'BRL')}</div>
+                        <div class="secondary">${isIncome ? '+' : ''}${formatCurrency(amountEUR, 'EUR')}</div>
                     </div>
                     <button class="edit-btn" onclick="editPlannedTransaction(${transaction.id}, ${isIncome})">✏️</button>
                     <button class="delete-btn" onclick="deletePlannedTransaction(${transaction.id}, ${isIncome})">×</button>
@@ -3576,7 +3564,7 @@
         function createTransactionListItem(transaction) {
             const isIncome = transaction.type === 'income';
             const amountCAD = transaction.amount;
-            const amountBRL = amountCAD * exchangeRate;
+            const amountEUR = amountCAD * exchangeRate;
             
             return `
                 <div class="list-item">
@@ -3586,7 +3574,7 @@
                     </div>
                     <div class="item-amount">
                         <div class="primary" style="color: ${isIncome ? 'var(--positive)' : 'var(--negative)'}">${isIncome ? '+' : '-'}${formatCurrency(Math.abs(amountCAD), 'CAD')}</div>
-                        <div class="secondary">${isIncome ? '+' : '-'}${formatCurrency(Math.abs(amountBRL), 'BRL')}</div>
+                        <div class="secondary">${isIncome ? '+' : '-'}${formatCurrency(Math.abs(amountEUR), 'EUR')}</div>
                     </div>
                     <button class="edit-btn" onclick="editTransaction('${transaction.type}', ${transaction.id})">✏️</button>
                     <button class="delete-btn" onclick="deleteTransaction('${transaction.type}', ${transaction.id})">×</button>
@@ -3596,7 +3584,7 @@
 
         function createRecurringListItem(item) {
             const isIncome = item.type === 'income';
-            const amountBRL = item.amount * exchangeRate;
+            const amountEUR = item.amount * exchangeRate;
             // Parse startDate properly to avoid timezone offset issues
             let startDate = 'Non définie';
             if (item.startDate) {
@@ -3613,7 +3601,7 @@
                     </div>
                     <div class="item-amount">
                         <div class="primary" style="color: ${isIncome ? 'var(--positive)' : 'var(--negative)'}">${formatCurrency(item.amount, 'CAD')}</div>
-                        <div class="secondary">${formatCurrency(amountBRL, 'BRL')}</div>
+                        <div class="secondary">${formatCurrency(amountEUR, 'EUR')}</div>
                     </div>
                     <button class="edit-btn" onclick="editRecurring('${item.type}', ${item.id})">✏️</button>
                     <button class="delete-btn" onclick="deleteRecurring('${item.type}', ${item.id})">×</button>
@@ -3704,7 +3692,7 @@
                         <label>Montant</label>
                         <div class="currency-toggle">
                             <button id="editPlannedCADBtn" class="${plannedTransaction.originalCurrency === 'CAD' ? 'active' : ''}" onclick="switchEditPlannedCurrency('CAD')">CAD</button>
-                            <button id="editPlannedBRLBtn" class="${plannedTransaction.originalCurrency === 'BRL' ? 'active' : ''}" onclick="switchEditPlannedCurrency('BRL')">BRL</button>
+                            <button id="editPlannedEURBtn" class="${plannedTransaction.originalCurrency === 'EUR' ? 'active' : ''}" onclick="switchEditPlannedCurrency('EUR')">EUR</button>
                         </div>
                         <input type="number" id="editPlannedAmount" value="${plannedTransaction.originalAmount}" step="0.01">
                     </div>
@@ -3737,7 +3725,7 @@
                         <label>Montant</label>
                         <div class="currency-toggle">
                             <button id="editPlannedCADBtn" class="${plannedTransaction.originalCurrency === 'CAD' ? 'active' : ''}" onclick="switchEditPlannedCurrency('CAD')">CAD</button>
-                            <button id="editPlannedBRLBtn" class="${plannedTransaction.originalCurrency === 'BRL' ? 'active' : ''}" onclick="switchEditPlannedCurrency('BRL')">BRL</button>
+                            <button id="editPlannedEURBtn" class="${plannedTransaction.originalCurrency === 'EUR' ? 'active' : ''}" onclick="switchEditPlannedCurrency('EUR')">EUR</button>
                         </div>
                         <div class="flex-row" style="margin-bottom: 4px;">
                             <input type="number" id="editPlannedAmount" value="${plannedTransaction.originalAmount}" step="0.01">
@@ -3782,9 +3770,9 @@
 
         function switchEditPlannedCurrency(currency) {
             const cadBtn = document.getElementById('editPlannedCADBtn');
-            const brlBtn = document.getElementById('editPlannedBRLBtn');
+            const eurBtn = document.getElementById('editPlannedEURBtn');
             if (cadBtn) cadBtn.classList.toggle('active', currency === 'CAD');
-            if (brlBtn) brlBtn.classList.toggle('active', currency === 'BRL');
+            if (eurBtn) eurBtn.classList.toggle('active', currency === 'EUR');
             editingPlanned.originalCurrency = currency;
         }
 
@@ -3805,7 +3793,7 @@
             
             if (!transaction) return;
 
-            const amountCAD = editingPlanned.originalCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = editingPlanned.originalCurrency === 'EUR' ? amount / exchangeRate : amount;
             
             transaction.description = description;
             transaction.amount = amountCAD;
@@ -3863,7 +3851,7 @@
         }
 
         function formatCurrency(amount, currency) {
-            const symbol = currency === 'CAD' ? '$' : 'R$';
+            const symbol = currency === 'CAD' ? '$' : '€';
             return `${amount.toFixed(2)} ${symbol}`;
         }
 
@@ -4051,10 +4039,10 @@
                 transaction.description = description;
                 
                 // Handle currency conversion
-                if (currentEditTransactionCurrency === 'BRL') {
-                    transaction.amount = amount / exchangeRate; // Convert BRL to CAD for storage
+                if (currentEditTransactionCurrency === 'EUR') {
+                    transaction.amount = amount / exchangeRate; // Convert EUR to CAD for storage
                     transaction.originalAmount = amount;
-                    transaction.originalCurrency = 'BRL';
+                    transaction.originalCurrency = 'EUR';
                 } else {
                     transaction.amount = amount;
                     transaction.originalAmount = amount;
@@ -4113,7 +4101,7 @@
                 return;
             }
 
-            const amountCAD = currentEditRecurringCurrency === 'BRL' ? amount / exchangeRate : amount;
+            const amountCAD = currentEditRecurringCurrency === 'EUR' ? amount / exchangeRate : amount;
             const recurrings = editingRecurring.type === 'income' ? budget.recurringIncome : budget.recurringExpenses;
             const recurring = recurrings.find(r => r.id === editingRecurring.id);
             
@@ -4224,31 +4212,6 @@
             autoSave();
             updateDisplay();
         }
-
-        // Unified category list - single source of truth for all categories
-        const unifiedCategories = [
-            { value: "Nourriture", emoji: "🍽️", label: "Nourriture" },
-            { value: "Épicerie", emoji: "🛒", label: "Épicerie" },
-            { value: "Transport", emoji: "🚌", label: "Transport" },
-            { value: "Logement", emoji: "🏠", label: "Logement" },
-            { value: "Hébergement", emoji: "🏨", label: "Hébergement" },
-            { value: "Téléphone", emoji: "📱", label: "Téléphone" },
-            { value: "Internet", emoji: "🌐", label: "Internet" },
-            { value: "Électricité", emoji: "⚡", label: "Électricité" },
-            { value: "Gaz", emoji: "🔥", label: "Gaz" },
-            { value: "Eau", emoji: "💧", label: "Eau" },
-            { value: "Pharmacie", emoji: "💊", label: "Pharmacie" },
-            { value: "Beauté", emoji: "💅", label: "Beauté" },
-            { value: "Divertissement", emoji: "🎉", label: "Sortie" },
-            { value: "Loisirs", emoji: "⚽", label: "Loisirs" },
-            { value: "Shopping", emoji: "🛍️", label: "Shopping" },
-            { value: "Voyage", emoji: "✈️", label: "Voyage" },
-            { value: "Activités", emoji: "🎯", label: "Activités" },
-            { value: "Cours", emoji: "📚", label: "Cours" },
-            { value: "Abonnement", emoji: "📺", label: "Abonnement" },
-            { value: "Assurance", emoji: "🛡️", label: "Assurance" },
-            { value: "Autre", emoji: "📋", label: "Autre" }
-        ];
 
         function updateCategorySelectors() {
             const selectors = [
@@ -4476,8 +4439,8 @@
                         tooltip: {
                             callbacks: {
                                 afterLabel: function(context) {
-                                    const brlValue = context.parsed.y * exchangeRate;
-                                    return formatCurrency(brlValue, 'BRL');
+                                    const eurValue = context.parsed.y * exchangeRate;
+                                    return formatCurrency(eurValue, 'EUR');
                                 }
                             }
                         }
@@ -4969,8 +4932,8 @@
                         tooltip: {
                             callbacks: {
                                 afterLabel: function(context) {
-                                    const brlValue = context.parsed.y * exchangeRate;
-                                    return formatCurrency(brlValue, 'BRL');
+                                    const eurValue = context.parsed.y * exchangeRate;
+                                    return formatCurrency(eurValue, 'EUR');
                                 }
                             }
                         }
@@ -5126,9 +5089,7 @@
             document.getElementById('plannedRevenueOnceDate').value = today;
             document.getElementById('plannedOnceDate').value = today;
             
-            // Initialize theme toggle early so it appears immediately
-            if (typeof initThemeToggle === 'function') initThemeToggle();
-
+            // Initialize the display with data and charts
             updateDisplay();
             
             // Enhanced touch support for iPhone
