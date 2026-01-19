@@ -763,7 +763,7 @@
         }
         
         .device-desktop .nav-desktop {
-            padding: 12px 30px;
+            padding: 0 30px 12px 30px;
         }
         
         .device-desktop .dashboard {
@@ -1541,10 +1541,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h3 style="font-size: 1rem; margin: 4px 0; line-height: 1.2;">Suivi de Budget Personnel</h3>
-        </div>
-
         <!-- Navigation -->
         <div class="nav-bar">
             <div class="nav-buttons">
@@ -1617,7 +1613,7 @@
                 <div class="dashboard-recent-transactions widget">
                     <h2>📝 Transactions Récentes</h2>
                     <div class="form-group" style="margin-bottom: 12px;">
-                        <label>Filtrer par catégorie:</label>
+                        <label for="recentTransactionCategoryFilter">Filtrer par catégorie:</label>
                         <select id="recentTransactionCategoryFilter" onchange="updateRecentTransactionsFilter()" style="margin-top: 4px;">
                             <option value="">Toutes les catégories</option>
                         </select>
@@ -1699,7 +1695,7 @@
                 <div class="monthly-transactions-list widget">
                     <h2>📋 Transactions du Mois</h2>
                     <div class="form-group" style="margin-bottom: 12px;">
-                        <label>Filtrer par catégorie:</label>
+                        <label for="monthTransactionCategoryFilter">Filtrer par catégorie:</label>
                         <select id="monthTransactionCategoryFilter" onchange="updateMonthTransactionsFilter()" style="margin-top: 4px;">
                             <option value="">Toutes les catégories</option>
                         </select>
@@ -1883,11 +1879,11 @@
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <div style="display: flex; flex-direction: column; flex: 1;">
-                                        <label style="font-size: 0.8em; margin-bottom: 2px;">Date de début:</label>
+                                        <label for="plannedRecurringRevenueStart" style="font-size: 0.8em; margin-bottom: 2px;">Date de début:</label>
                                         <input type="date" id="plannedRecurringRevenueStart">
                                     </div>
                                     <div style="display: flex; flex-direction: column; flex: 1; margin-left: 8px;">
-                                        <label style="font-size: 0.8em; margin-bottom: 2px;">Date de fin:</label>
+                                        <label for="plannedRecurringRevenueEnd" style="font-size: 0.8em; margin-bottom: 2px;">Date de fin:</label>
                                         <input type="date" id="plannedRecurringRevenueEnd">
                                     </div>
                                 </div>
@@ -1914,11 +1910,11 @@
                                 </div>
                                 <div class="flex-row" style="margin-bottom: 4px;">
                                     <div style="display: flex; flex-direction: column; flex: 1;">
-                                        <label style="font-size: 0.8em; margin-bottom: 2px;">Date de début:</label>
+                                        <label for="plannedRecurringStart" style="font-size: 0.8em; margin-bottom: 2px;">Date de début:</label>
                                         <input type="date" id="plannedRecurringStart">
                                     </div>
                                     <div style="display: flex; flex-direction: column; flex: 1; margin-left: 8px;">
-                                        <label style="font-size: 0.8em; margin-bottom: 2px;">Date de fin:</label>
+                                        <label for="plannedRecurringEnd" style="font-size: 0.8em; margin-bottom: 2px;">Date de fin:</label>
                                         <input type="date" id="plannedRecurringEnd">
                                     </div>
                                 </div>
@@ -1952,29 +1948,29 @@
                 <div class="widget">
                     <h2>⚙️ Configuration Générale</h2>
                     <div class="form-group">
-                        <label>Budget Total (CAD)</label>
+                        <label for="totalBudget">Budget Total (CAD)</label>
                         <input type="number" id="totalBudget" placeholder="5000" step="0.01">
                     </div>
                     <div class="form-group">
-                        <label>Solde Actuel (CAD)</label>
+                        <label for="currentBalance">Solde Actuel (CAD)</label>
                         <input type="number" id="currentBalance" placeholder="5000" step="0.01">
                     </div>
                     <div class="form-group">
-                        <label>Date du Solde Actuel</label>
+                        <label for="balanceDate">Date du Solde Actuel</label>
                         <input type="date" id="balanceDate">
                     </div>
                     <div class="flex-row">
                         <div class="form-group">
-                            <label>Début</label>
+                            <label for="startDate">Début</label>
                             <input type="date" id="startDate">
                         </div>
                         <div class="form-group">
-                            <label>Fin</label>
+                            <label for="endDate">Fin</label>
                             <input type="date" id="endDate">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Taux (1 CAD = ? EUR)</label>
+                        <label for="exchangeRateInput">Taux (1 CAD = ? EUR)</label>
                         <input type="number" id="exchangeRateInput" placeholder="0.62" step="0.01" value="0.62">
                     </div>
                     <button class="btn" style="background: #000000; color: #ffffff;" onclick="updateSetup()">Sauvegarder</button>
@@ -1984,7 +1980,7 @@
                 <div class="widget">
                     <h2>🏷️ Catégories Personnalisées</h2>
                     <div class="form-group">
-                        <label>Nouvelle Catégorie</label>
+                        <label for="newCategoryName">Nouvelle Catégorie</label>
                         <div class="flex-row">
                             <input type="text" id="newCategoryName" placeholder="Nom de la catégorie">
                             <button class="btn btn-small" onclick="addCustomCategory()" style="width: auto; margin-left: 8px;">+ Ajouter</button>
@@ -2036,11 +2032,11 @@
                 <button class="close-btn" onclick="closeModal('expenseModal')">&times;</button>
             </div>
             <div class="form-group">
-                <label>Description</label>
+                <label for="expenseDescription">Description</label>
                 <input type="text" id="expenseDescription" placeholder="Description">
             </div>
             <div class="form-group">
-                <label>Montant</label>
+                <label for="expenseAmount">Montant</label>
                 <div class="currency-toggle">
                     <button id="cadBtn" class="active" onclick="switchCurrency('CAD')">CAD</button>
                     <button id="eurBtn" onclick="switchCurrency('EUR')">EUR</button>
@@ -2048,11 +2044,11 @@
                 <input type="number" id="expenseAmount" placeholder="Montant" step="0.01">
             </div>
             <div class="form-group">
-                <label>Date</label>
+                <label for="expenseDate">Date</label>
                 <input type="date" id="expenseDate">
             </div>
             <div class="form-group">
-                <label>Catégorie</label>
+                <label for="expenseCategory">Catégorie</label>
                 <select id="expenseCategory">
                     <option value="Nourriture">🍽️ Nourriture</option>
                     <option value="Épicerie">🛒 Épicerie</option>
@@ -2079,11 +2075,11 @@
                 <button class="close-btn" onclick="closeModal('incomeModal')">&times;</button>
             </div>
             <div class="form-group">
-                <label>Description</label>
+                <label for="incomeDescription">Description</label>
                 <input type="text" id="incomeDescription" placeholder="Description">
             </div>
             <div class="form-group">
-                <label>Montant</label>
+                <label for="incomeAmount">Montant</label>
                 <div class="currency-toggle">
                     <button id="incomeCADBtn" class="active" onclick="switchIncomeCurrency('CAD')">CAD</button>
                     <button id="incomeEURBtn" onclick="switchIncomeCurrency('EUR')">EUR</button>
@@ -2091,7 +2087,7 @@
                 <input type="number" id="incomeAmount" placeholder="Montant" step="0.01">
             </div>
             <div class="form-group">
-                <label>Date</label>
+                <label for="incomeDate">Date</label>
                 <input type="date" id="incomeDate">
             </div>
             <button class="btn btn-income" onclick="addIncome(); closeModal('incomeModal')">Ajouter Revenu</button>
@@ -2106,11 +2102,11 @@
                 <button class="close-btn" onclick="closeModal('editTransactionModal')">&times;</button>
             </div>
             <div class="form-group">
-                <label>Description</label>
+                <label for="editTransactionDescription">Description</label>
                 <input type="text" id="editTransactionDescription" placeholder="Description">
             </div>
             <div class="form-group">
-                <label>Montant</label>
+                <label for="editTransactionAmount">Montant</label>
                 <div class="currency-toggle">
                     <button id="editTransactionCADBtn" class="active" onclick="switchEditTransactionCurrency('CAD')">CAD</button>
                     <button id="editTransactionEURBtn" onclick="switchEditTransactionCurrency('EUR')">EUR</button>
@@ -2118,11 +2114,11 @@
                 <input type="number" id="editTransactionAmount" placeholder="Montant" step="0.01">
             </div>
             <div class="form-group">
-                <label>Date</label>
+                <label for="editTransactionDate">Date</label>
                 <input type="date" id="editTransactionDate">
             </div>
             <div class="form-group" id="editTransactionCategoryGroup">
-                <label>Catégorie</label>
+                <label for="editTransactionCategory">Catégorie</label>
                 <select id="editTransactionCategory">
                     <option value="Nourriture">🍽️ Nourriture</option>
                     <option value="Épicerie">🛒 Épicerie</option>
@@ -2149,11 +2145,11 @@
                 <button class="close-btn" onclick="closeModal('editRecurringModal')">&times;</button>
             </div>
             <div class="form-group">
-                <label>Description</label>
+                <label for="editRecurringDescription">Description</label>
                 <input type="text" id="editRecurringDescription" placeholder="Description">
             </div>
             <div class="form-group">
-                <label>Montant</label>
+                <label for="editRecurringAmount">Montant</label>
                 <div class="currency-toggle">
                     <button id="editRecurringCADBtn" class="active" onclick="switchEditRecurringCurrency('CAD')">CAD</button>
                     <button id="editRecurringEURBtn" onclick="switchEditRecurringCurrency('EUR')">EUR</button>
@@ -2161,7 +2157,7 @@
                 <input type="number" id="editRecurringAmount" placeholder="Montant" step="0.01">
             </div>
             <div class="form-group" id="editRecurringCategoryGroup">
-                <label>Catégorie</label>
+                <label for="editRecurringCategory">Catégorie</label>
                 <select id="editRecurringCategory">
                     <option value="Téléphone">📱 Téléphone</option>
                     <option value="Transport">🚌 Transport</option>
@@ -2172,7 +2168,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Fréquence</label>
+                <label for="editRecurringFrequency">Fréquence</label>
                 <select id="editRecurringFrequency">
                     <option value="weekly">Hebdomadaire</option>
                     <option value="biweekly">Aux 2 semaines</option>
@@ -2180,7 +2176,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Date de début</label>
+                <label for="editRecurringStartDate">Date de début</label>
                 <input type="date" id="editRecurringStartDate" placeholder="Date de début">
             </div>
             <button class="btn" onclick="saveRecurringEdit()">Sauvegarder</button>
@@ -2195,11 +2191,11 @@
                 <button class="close-btn" onclick="closeModal('editCustomCategoryModal')">&times;</button>
             </div>
             <div class="form-group">
-                <label>Nom de la Catégorie</label>
+                <label for="editCategoryName">Nom de la Catégorie</label>
                 <input type="text" id="editCategoryName" placeholder="Nom de la catégorie">
             </div>
             <div class="form-group">
-                <label>Emoji</label>
+                <label for="editCategoryEmoji">Emoji</label>
                 <input type="text" id="editCategoryEmoji" placeholder="🏷️" maxlength="2" style="width: 80px;">
             </div>
             <button class="btn" onclick="saveCustomCategoryEdit()">Sauvegarder</button>
@@ -2304,8 +2300,11 @@
             container.classList.remove('container-mobile');
             
             // Move nav back to top (after header) if it was moved to bottom
-            if (navBar.parentElement === container) {
+            if (navBar.parentElement === container && header) {
                 container.insertBefore(navBar, header.nextSibling);
+            } else if (navBar.parentElement === container && !header) {
+                // If header doesn't exist, move nav to the beginning
+                container.insertBefore(navBar, container.firstChild);
             }
         }
         
@@ -3727,11 +3726,11 @@ document.addEventListener('touchstart', function(event) {
             if (isOnce) {
                 modalForm.innerHTML = `
                     <div class="form-group">
-                        <label>Description</label>
+                        <label for="editPlannedDesc">Description</label>
                         <input type="text" id="editPlannedDesc" value="${plannedTransaction.description}">
                     </div>
                     <div class="form-group">
-                        <label>Montant</label>
+                        <label for="editPlannedAmount">Montant</label>
                         <div class="currency-toggle">
                             <button id="editPlannedCADBtn" class="${plannedTransaction.originalCurrency === 'CAD' ? 'active' : ''}" onclick="switchEditPlannedCurrency('CAD')">CAD</button>
                             <button id="editPlannedEURBtn" class="${plannedTransaction.originalCurrency === 'EUR' ? 'active' : ''}" onclick="switchEditPlannedCurrency('EUR')">EUR</button>
@@ -3739,7 +3738,7 @@ document.addEventListener('touchstart', function(event) {
                         <input type="number" id="editPlannedAmount" value="${plannedTransaction.originalAmount}" step="0.01">
                     </div>
                     <div class="form-group">
-                        <label>Date</label>
+                        <label for="editPlannedDate">Date</label>
                         <input type="date" id="editPlannedDate" value="${plannedTransaction.targetDate}">
                     </div>
                     ${!isIncome ? `
@@ -3760,11 +3759,11 @@ document.addEventListener('touchstart', function(event) {
             } else {
                 modalForm.innerHTML = `
                     <div class="form-group">
-                        <label>Description</label>
+                        <label for="editPlannedDesc">Description</label>
                         <input type="text" id="editPlannedDesc" value="${plannedTransaction.description}">
                     </div>
                     <div class="form-group">
-                        <label>Montant</label>
+                        <label for="editPlannedAmount">Montant</label>
                         <div class="currency-toggle">
                             <button id="editPlannedCADBtn" class="${plannedTransaction.originalCurrency === 'CAD' ? 'active' : ''}" onclick="switchEditPlannedCurrency('CAD')">CAD</button>
                             <button id="editPlannedEURBtn" class="${plannedTransaction.originalCurrency === 'EUR' ? 'active' : ''}" onclick="switchEditPlannedCurrency('EUR')">EUR</button>
